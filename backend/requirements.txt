@@ -3,4 +3,6 @@ uvicorn
 sqlalchemy
 asyncpg
 pydantic
+email-validator
 python-dotenv
+supabase

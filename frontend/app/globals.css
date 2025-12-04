@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 10, 10, 10;
+  --neon-green: #00ff41;
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+  font-family: 'Courier New', Courier, monospace;
+  /* Hacker aesthetic */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .neon-text {
+    text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green);
+  }
+
+  .neon-border {
+    box-shadow: 0 0 5px var(--neon-green), inset 0 0 5px var(--neon-green);
+    border: 1px solid var(--neon-green);
+  }
+
+  .cyber-button {
+    @apply relative px-6 py-3 font-bold text-black transition-all duration-300;
+    background-color: var(--neon-green);
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  }
+
+  .cyber-button:hover {
+    background-color: var(--neon-blue);
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 var(--neon-pink);
+  }
+
+  .cyber-input {
+    @apply w-full bg-black border border-gray-700 p-3 text-white focus:outline-none focus:border-[color:var(--neon-green)];
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 95% 100%, 0 100%);
+  }
+}
